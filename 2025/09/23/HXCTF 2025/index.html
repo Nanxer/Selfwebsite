@@ -40,10 +40,9 @@
 <meta property="og:image" content="https://nanxer.it4keth2ee.top/2025/09/23/HXCTF%202025/394e809c-825d-44d9-aa5d-414629b2d8a4.png">
 <meta property="og:image" content="https://nanxer.it4keth2ee.top/2025/09/23/HXCTF%202025/63a7fa46-91cd-4114-8a6a-bf6716a9253b.png">
 <meta property="og:image" content="https://nanxer.it4keth2ee.top/2025/09/23/HXCTF%202025/e081ace6-8bcf-4cdc-95d7-0202f6bb8236.png">
-<meta property="og:image" content="https://nanxer.it4keth2ee.top/2025/09/23/HXCTF%202025/2f017533-553a-4899-82af-54ac8a0b0dcf.png">
 <meta property="og:image" content="https://nanxer.it4keth2ee.top/2025/09/23/HXCTF%202025/9d09796b-a644-425f-926f-68fe08336fd3.png">
 <meta property="article:published_time" content="2025-09-23T10:16:58.204Z">
-<meta property="article:modified_time" content="2025-09-23T11:26:12.704Z">
+<meta property="article:modified_time" content="2025-09-23T15:40:21.259Z">
 <meta property="article:author" content="Nanxer">
 <meta property="article:tag" content="crypto">
 <meta property="article:tag" content="misc">
@@ -90,9 +89,12 @@
 
 
   
+<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css">
 <link rel="stylesheet" href="/css/glassBg.css">
 <link rel="stylesheet" href="/css/scrollAnimation.css">
 <link rel="stylesheet" href="/css/sign.css">
+<link rel="stylesheet" href="/css/links.css">
+<link rel="stylesheet" href="/css/macBorder.css">
 
 
 
@@ -322,11 +324,14 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-built_in">str</span>=<span class="hljs-string">&#x27;db6b2e47c926f403f02ae9baf031d72aa1a160fc38&#x27;</span><br><span class="hljs-built_in">str</span>=<span class="hljs-built_in">bytes</span>.fromhex(<span class="hljs-built_in">str</span>)<br><span class="hljs-keyword">for</span> a <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">1</span>,<span class="hljs-number">256</span>,<span class="hljs-number">2</span>):<br>    <span class="hljs-keyword">for</span> b <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">256</span>):<br>        flag=<span class="hljs-string">&#x27;&#x27;</span><br>        <span class="hljs-keyword">for</span> c <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>:<br>            flag+=<span class="hljs-built_in">chr</span>((c*a+b)%<span class="hljs-number">256</span>)<br>        <span class="hljs-keyword">if</span> flag.startswith(<span class="hljs-string">&#x27;HXCTF&#123;&#x27;</span>):<br>            <span class="hljs-built_in">print</span>(flag)<br><br><span class="hljs-comment"># HXCTF&#123;Y0u_found_^^e!&#125;</span><br></code></pre></td></tr></table></figure>
 <h3 id="ezdecision">ezDecision</h3>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> getPrime, getRandomRange, bytes_to_long<br>flag = <span class="hljs-string">b&quot;HXCTF&#123;FAKE_FLAG&#125;&quot;</span><br>p = getPrime(<span class="hljs-number">64</span>)<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">F0</span>():<br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):<br>        M = random_matrix(Zmod(p), <span class="hljs-number">3</span>, <span class="hljs-number">3</span>)<br>        <span class="hljs-keyword">if</span> M.rank() == <span class="hljs-number">3</span>:<br>            <span class="hljs-keyword">return</span> M.<span class="hljs-built_in">list</span>()<br><span class="hljs-keyword">def</span> <span class="hljs-title function_">F1</span>():<br>    <span class="hljs-keyword">while</span>(<span class="hljs-number">1</span>):<br>        M = matrix(Zmod(p), [[getRandomRange(-<span class="hljs-number">10</span>, <span class="hljs-number">10</span>) <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">3</span>)])<br>        upper = matrix(Zmod(p), [[<span class="hljs-number">1</span>, getRandomRange(<span class="hljs-number">0</span>, p), getRandomRange(<span class="hljs-number">0</span>, p)],<br>                                 [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, getRandomRange(<span class="hljs-number">0</span>, p)],<br>                                 [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]])<br>        lower = matrix(Zmod(p), [[<span class="hljs-number">1</span>, getRandomRange(<span class="hljs-number">0</span>, p), getRandomRange(<span class="hljs-number">0</span>, p)],<br>                                 [<span class="hljs-number">0</span>, <span class="hljs-number">1</span>, getRandomRange(<span class="hljs-number">0</span>, p)],<br>                                 [<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">1</span>]]).T<br>        <span class="hljs-keyword">if</span> M.rank() == <span class="hljs-number">3</span>:<br>            <span class="hljs-keyword">break</span><br>    <span class="hljs-keyword">return</span> (lower*upper*M).<span class="hljs-built_in">list</span>()<br>output = [F1() <span class="hljs-keyword">if</span> <span class="hljs-built_in">int</span>(i) <span class="hljs-keyword">else</span> F0() <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">bin</span>(bytes_to_long(flag))[<span class="hljs-number">2</span>:].zfill(<span class="hljs-built_in">len</span>(flag)*<span class="hljs-number">8</span>)]<br>f = <span class="hljs-built_in">open</span>(<span class="hljs-string">&quot;data.txt&quot;</span>, <span class="hljs-string">&quot;w&quot;</span>)<br><span class="hljs-built_in">print</span>(output, file=f)<br><span class="hljs-built_in">print</span>(p, file=f)<br></code></pre></td></tr></table></figure>
-<p>F1生成矩阵的行列式值mod p后接近0或者p，F0无此特征，且验证得到F0生成矩阵的<code>det() mod p</code>结果距离p和0都很远</p>
+<p>F1生成矩阵的行列式值mod
+p后接近0或者p，F0无此特征，且验证得到F0生成矩阵的<code>det() mod p</code>结果距离p和0都很远</p>
 <p>exp：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;data.txt&#x27;</span>,<span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    M = <span class="hljs-built_in">eval</span>(f.readline())<br>    p = <span class="hljs-built_in">int</span>(f.readline())<br>flag = <span class="hljs-number">0</span><br><span class="hljs-keyword">for</span> m <span class="hljs-keyword">in</span> M:<br>    tmp = <span class="hljs-built_in">int</span>(matrix(ZZ,[m[<span class="hljs-number">0</span>:<span class="hljs-number">3</span>],m[<span class="hljs-number">3</span>:<span class="hljs-number">6</span>],m[<span class="hljs-number">6</span>:<span class="hljs-number">9</span>]]).det() % p)<br>    flag &lt;&lt;= <span class="hljs-number">1</span><br><br>    <span class="hljs-keyword">if</span> tmp &lt; <span class="hljs-number">10000</span> <span class="hljs-keyword">or</span> tmp &gt; p - <span class="hljs-number">10000</span>:<br>        flag |= <span class="hljs-number">1</span><br>    <span class="hljs-keyword">else</span>:<br>        flag |= <span class="hljs-number">0</span><br><span class="hljs-built_in">print</span>(long_to_bytes(flag))<br><span class="hljs-comment"># b&#x27;HXCTF&#123;Th3s3_m@trice5_ar3_n0t_di77icu1t_t0_di5tingu1sh&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
 <h3 id="babysign">babysign</h3>
-<p>lcg+dsa，参考<a target="_blank" rel="noopener" href="https://blog.csdn.net/ATFWUS/article/details/127362465#:~:text=%E6%9C%AC%E6%96%87%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E4%BA%86%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95DSA%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E3%80%81%E7%AD%BE%E5%90%8D%E5%92%8C%E9%AA%8C%E8%AF%81%E8%BF%87%E7%A8%8B%EF%BC%8C%E5%B9%B6%E8%AE%A8%E8%AE%BA%E4%BA%86%E4%B8%A4%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F%EF%BC%9A%E5%85%B1%E4%BA%ABk%E6%94%BB%E5%87%BB%E5%92%8C%E7%BA%BF%E6%80%A7k%E6%94%BB%E5%87%BB%E3%80%82%20%E9%80%9A%E8%BF%87%E5%AE%9E%E4%BE%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E8%BF%99%E4%BA%9B%E6%94%BB%E5%87%BB%E6%9D%A5%E7%A0%B4%E8%A7%A3DSA%E7%AD%BE%E5%90%8D%EF%BC%8C%E5%BC%BA%E8%B0%83%E4%BA%86%E5%9C%A8%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8k%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E3%80%82%20%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90%E4%BA%8E%20C%E7%9F%A5%E9%81%93,%EF%BC%8C%E7%94%B1%20DeepSeek-R1%20%E6%BB%A1%E8%A1%80%E7%89%88%E6%94%AF%E6%8C%81%EF%BC%8C%20%E5%89%8D%E5%BE%80%E4%BD%93%E9%AA%8C%20%3E">DSA数字签名-针对随机数k的共享k攻击&amp;线性k攻击_dsa签名 ctf 泄露了随机数k-CSDN博客</a>线性k恢复</p>
+<p>lcg+dsa，参考<a
+target="_blank" rel="noopener" href="https://blog.csdn.net/ATFWUS/article/details/127362465#:~:text=%E6%9C%AC%E6%96%87%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D%E4%BA%86%E6%95%B0%E5%AD%97%E7%AD%BE%E5%90%8D%E7%AE%97%E6%B3%95DSA%E7%9A%84%E5%8E%9F%E7%90%86%EF%BC%8C%E5%8C%85%E6%8B%AC%E5%AF%86%E9%92%A5%E7%94%9F%E6%88%90%E3%80%81%E7%AD%BE%E5%90%8D%E5%92%8C%E9%AA%8C%E8%AF%81%E8%BF%87%E7%A8%8B%EF%BC%8C%E5%B9%B6%E8%AE%A8%E8%AE%BA%E4%BA%86%E4%B8%A4%E7%A7%8D%E6%94%BB%E5%87%BB%E6%96%B9%E5%BC%8F%EF%BC%9A%E5%85%B1%E4%BA%ABk%E6%94%BB%E5%87%BB%E5%92%8C%E7%BA%BF%E6%80%A7k%E6%94%BB%E5%87%BB%E3%80%82%20%E9%80%9A%E8%BF%87%E5%AE%9E%E4%BE%8B%E5%B1%95%E7%A4%BA%E4%BA%86%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E8%BF%99%E4%BA%9B%E6%94%BB%E5%87%BB%E6%9D%A5%E7%A0%B4%E8%A7%A3DSA%E7%AD%BE%E5%90%8D%EF%BC%8C%E5%BC%BA%E8%B0%83%E4%BA%86%E5%9C%A8%E5%AE%9E%E9%99%85%E5%BA%94%E7%94%A8%E4%B8%AD%E9%81%BF%E5%85%8D%E9%87%8D%E5%A4%8D%E4%BD%BF%E7%94%A8k%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7%E3%80%82%20%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90%E4%BA%8E%20C%E7%9F%A5%E9%81%93,%EF%BC%8C%E7%94%B1%20DeepSeek-R1%20%E6%BB%A1%E8%A1%80%E7%89%88%E6%94%AF%E6%8C%81%EF%BC%8C%20%E5%89%8D%E5%BE%80%E4%BD%93%E9%AA%8C%20%3E">DSA数字签名-针对随机数k的共享k攻击&amp;线性k攻击_dsa签名
+ctf 泄露了随机数k-CSDN博客</a>线性k恢复</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">from</span> hashlib <span class="hljs-keyword">import</span> md5<br><span class="hljs-keyword">from</span> pwn <span class="hljs-keyword">import</span> *<br><span class="hljs-keyword">import</span> os<br><br>remote=remote(<span class="hljs-string">&#x27;127.0.0.1&#x27;</span>, <span class="hljs-number">8888</span>)<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">recover_x</span>(<span class="hljs-params">q, r, s, h, k</span>):<br>    <span class="hljs-keyword">return</span> (s * k - h) * inverse(r, q) % q<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">sign</span>(<span class="hljs-params">g,q,p,x,msg,k</span>):<br>    Hm = bytes_to_long(md5(msg).digest())<br>    r = <span class="hljs-built_in">pow</span>(g, k, p) % q<br>    s = (Hm + x * r) * <span class="hljs-built_in">pow</span>(k, -<span class="hljs-number">1</span>, q) % q<br>    <span class="hljs-keyword">return</span> (r, s)<br><br>re1=remote.recvline(<span class="hljs-string">b&#x27;[+]: &#x27;</span>).decode()<br>p,q,g,y = <span class="hljs-built_in">map</span>(<span class="hljs-built_in">int</span>, re1.split(<span class="hljs-string">&#x27;(&#x27;</span>)[<span class="hljs-number">1</span>].split(<span class="hljs-string">&#x27;)&#x27;</span>)[<span class="hljs-number">0</span>].split(<span class="hljs-string">&#x27;,&#x27;</span>))<br>a = <span class="hljs-number">0xe4b39d062f5eaffe04fd8c302b8f956a43264ead</span><br>b = <span class="hljs-number">0xb703a3ec8c6a9520e77d6bb14220abfde7d12dc6</span><br><br>remote.sendlineafter(<span class="hljs-string">b&#x27;[+]: &#x27;</span>,<span class="hljs-string">b&#x27;hijack&#x27;</span>)<br>m1=remote.recvline(<span class="hljs-string">b&#x27;[+]: &#x27;</span>).decode().split(<span class="hljs-string">&#x27;,&#x27;</span>)<br>h1=bytes_to_long(md5(<span class="hljs-built_in">bytes</span>.fromhex(m1[<span class="hljs-number">0</span>].replace(<span class="hljs-string">&quot;&#x27;&quot;</span>,<span class="hljs-string">&#x27;&#x27;</span>))).digest())<br>r1,s1=<span class="hljs-built_in">int</span>(m1[<span class="hljs-number">1</span>]),<span class="hljs-built_in">int</span>(m1[<span class="hljs-number">2</span>])<br><br>remote.sendlineafter(<span class="hljs-string">b&#x27;[+]: &#x27;</span>,<span class="hljs-string">b&#x27;hijack&#x27;</span>)<br>m2=remote.recvline(<span class="hljs-string">b&#x27;[+]: &#x27;</span>).decode().split(<span class="hljs-string">&#x27;,&#x27;</span>)<br>h2=bytes_to_long(md5(<span class="hljs-built_in">bytes</span>.fromhex(m2[<span class="hljs-number">0</span>].replace(<span class="hljs-string">&quot;&#x27;&quot;</span>,<span class="hljs-string">&#x27;&#x27;</span>))).digest())<br>r2,s2=<span class="hljs-built_in">int</span>(m2[<span class="hljs-number">1</span>]),<span class="hljs-built_in">int</span>(m2[<span class="hljs-number">2</span>])<br><br>k = inverse(a * s2 * r1 - s1 * r2, q) * (h2 * r1 - h1 * r2 - b * s2 * r1) % q<br>x = recover_x(q,r1,s1,h1,k)<br><br>msg=<span class="hljs-string">b&#x27;faritree&#x27;</span>+os.urandom(<span class="hljs-number">8</span>)<br><span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>): k = (a * k + b) % q <br>r, s = sign(g,q,p,x,msg,k)<br><br>remote.sendlineafter(<span class="hljs-string">b&#x27;[+]: &#x27;</span>,<span class="hljs-string">b&#x27;verify&#x27;</span>)<br>remote.sendlineafter(<span class="hljs-string">b&quot;Give me message and signature\n[+]: &quot;</span>,<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;msg.<span class="hljs-built_in">hex</span>()+<span class="hljs-string">&#x27;,&#x27;</span>+<span class="hljs-built_in">str</span>(r)+<span class="hljs-string">&#x27;,&#x27;</span>+<span class="hljs-built_in">str</span>(s)&#125;</span>&#x27;</span>.encode())<br><span class="hljs-built_in">print</span>(<span class="hljs-string">b&#x27;\n&#x27;</span>.join(remote.recvlines(<span class="hljs-number">2</span>)).decode())<br></code></pre></td></tr></table></figure>
 <h3 id="ezopt">ezOPT</h3>
 <p>如同VNCTF2025的并非RC4，这里的交换有误，使得最后一部分的k就是确定的，1-255爆破一下即可</p>
@@ -339,7 +344,8 @@
 <p>也可以直接爆破：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> itertools<br><span class="hljs-built_in">list</span> = [<span class="hljs-number">9</span>, <span class="hljs-number">25</span>, <span class="hljs-number">35</span>, <span class="hljs-number">81</span>, <span class="hljs-number">97</span>, <span class="hljs-number">187</span>, <span class="hljs-number">195</span>, <span class="hljs-number">131</span>, <span class="hljs-number">179</span>, <span class="hljs-number">155</span>, <span class="hljs-number">123</span>, <span class="hljs-number">195</span>, <span class="hljs-number">233</span>, <span class="hljs-number">163</span>, <span class="hljs-number">177</span>, <span class="hljs-number">155</span>, <span class="hljs-number">145</span>, <span class="hljs-number">209</span>, <span class="hljs-number">235</span>, <span class="hljs-number">123</span>, <span class="hljs-number">115</span>, <span class="hljs-number">137</span>, <span class="hljs-number">131</span>, <span class="hljs-number">209</span>, <span class="hljs-number">123</span>, <span class="hljs-number">163</span>, <span class="hljs-number">131</span>, <span class="hljs-number">233</span>, <span class="hljs-number">123</span>, <span class="hljs-number">11</span>, <span class="hljs-number">123</span>, <span class="hljs-number">179</span>, <span class="hljs-number">131</span>, <span class="hljs-number">155</span>, <span class="hljs-number">219</span>]<br>str2 = [<span class="hljs-string">&#x27;&#x27;</span>.join([i <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">str</span>]) <span class="hljs-keyword">for</span> <span class="hljs-built_in">str</span> <span class="hljs-keyword">in</span> itertools.permutations(<span class="hljs-string">&#x27;01234567&#x27;</span>)]<br><br><span class="hljs-keyword">for</span> <span class="hljs-built_in">str</span> <span class="hljs-keyword">in</span> str2:<br>    flag=<span class="hljs-string">&#x27;&#x27;</span><br>    <span class="hljs-keyword">for</span> s <span class="hljs-keyword">in</span> <span class="hljs-built_in">list</span>:<br>        s = <span class="hljs-built_in">bin</span>(s)[<span class="hljs-number">2</span>:].zfill(<span class="hljs-number">8</span>)<br>        key=&#123;key:value <span class="hljs-keyword">for</span> key,value <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(<span class="hljs-built_in">str</span>,s)&#125;<br>        flag+=<span class="hljs-built_in">chr</span>(<span class="hljs-built_in">int</span>(<span class="hljs-string">&#x27;&#x27;</span>.join([i[<span class="hljs-number">1</span>] <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">sorted</span>(key.items(), key=<span class="hljs-keyword">lambda</span> x:x[<span class="hljs-number">0</span>])]),<span class="hljs-number">2</span>))<br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;HXCTF&#x27;</span> <span class="hljs-keyword">in</span> flag:<br>        <span class="hljs-built_in">print</span>(flag)<br><span class="hljs-comment"># HXCTF&#123;easy_encrypto_What_can_I_say&#125;</span><br></code></pre></td></tr></table></figure>
 <h3 id="weirvierwilson">WeirVierWilson</h3>
-<p>威尔逊定理：当p为素数时，<span class="math inline">(<em>p</em> − 1)! =  − 1mod <em>p</em></span></p>
+<p>威尔逊定理：当p为素数时，<span
+class="math inline">(<em>p</em> − 1)! = −1 mod  <em>p</em></span></p>
 <p>此处有<code>range(1,prime)</code>等价于此定理内容，故可以简化为：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs python">PrivateKey = -<span class="hljs-number">1</span><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(prime+<span class="hljs-number">1</span>,prime + prime.bit_length()):<br>    PrivateKey = (PrivateKey * i) % prime<br></code></pre></td></tr></table></figure>
 <p>从而得到结果：</p>
@@ -348,7 +354,8 @@
 <p>观察字符串，符合base91的特征(好吧，用cyberchef试一试就行了，跑几次能看到是91和64的套娃)</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">import</span> base64<br><span class="hljs-keyword">import</span> base91<br><br>a=<span class="hljs-string">&quot;&quot;&quot;</span><br><span class="hljs-string">...</span><br><span class="hljs-string">&quot;&quot;&quot;</span><br><br>k=<span class="hljs-number">0</span><br><span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>    b=base91.decode(a).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    k+=<span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;HXCTF&#x27;</span> <span class="hljs-keyword">in</span> b:<br>        <span class="hljs-built_in">print</span>(k,b)<br>        <span class="hljs-keyword">break</span><br><br>    a=base64.b64decode(b).decode(<span class="hljs-string">&#x27;utf-8&#x27;</span>)<br>    k+=<span class="hljs-number">1</span><br>    <span class="hljs-keyword">if</span> <span class="hljs-string">&#x27;HXCTF&#x27;</span> <span class="hljs-keyword">in</span> a:<br>        <span class="hljs-built_in">print</span>(k,a)<br>        <span class="hljs-keyword">break</span><br><span class="hljs-comment"># 32 HXCTF&#123;B6bbAa@ass5ssEee36b6644A4&#125;</span><br></code></pre></td></tr></table></figure>
 <h3 id="ezrsa">ezRSA</h3>
-<p>根据已知信息爆破<span class="math inline"><em>p</em><sub><em>l</em><em>o</em><em>w</em></sub> * <em>q</em><sub><em>l</em><em>o</em><em>w</em></sub> =  = <em>n</em><sub><em>l</em><em>o</em><em>w</em></sub></span></p>
+<p>根据已知信息爆破<span
+class="math inline"><em>p</em><sub><em>l</em><em>o</em><em>w</em></sub> * <em>q</em><sub><em>l</em><em>o</em><em>w</em></sub> =  = <em>n</em><sub><em>l</em><em>o</em><em>w</em></sub></span></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Util.number <span class="hljs-keyword">import</span> *<br><br><span class="hljs-keyword">def</span> <span class="hljs-title function_">get_pq</span>(<span class="hljs-params">n, x</span>):<br>    a = [<span class="hljs-number">0</span>]<br>    b = [<span class="hljs-number">0</span>]<br>    maskx = <span class="hljs-number">1</span><br>    maskn = <span class="hljs-number">2</span><br>    <span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">512</span>):<br>        xbit = (x &amp; maskx) &gt;&gt; i<br>        nbit = n % maskn<br>        t_a = []<br>        t_b = []<br>        <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-built_in">len</span>(a)):<br>            <span class="hljs-keyword">for</span> aa <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                <span class="hljs-keyword">for</span> bb <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">2</span>):<br>                    <span class="hljs-keyword">if</span> aa ^ bb == xbit:<br>                        tmp2 = n % maskn<br>                        tmp1 = (aa * maskn // <span class="hljs-number">2</span> + a[j]) * (bb * maskn // <span class="hljs-number">2</span> + b[j]) % maskn<br>                        <span class="hljs-keyword">if</span> tmp1 == tmp2:<br>                            t_a.append(aa * maskn // <span class="hljs-number">2</span> + a[j])<br>                            t_b.append(bb * maskn // <span class="hljs-number">2</span> + b[j])<br>        maskx *= <span class="hljs-number">2</span><br>        maskn *= <span class="hljs-number">2</span><br>        a = t_a<br>        b = t_b<br><br>    <span class="hljs-keyword">for</span> a1, b1 <span class="hljs-keyword">in</span> <span class="hljs-built_in">zip</span>(a, b):<br>        <span class="hljs-keyword">if</span> a1 * b1 == n:<br>            <span class="hljs-keyword">return</span> a1, b1<br><br>c = <span class="hljs-number">20581338524773710931014796705060927721164022110933170236907622868446276673276379960074983874694013071501404205921712458516719528791313217075372120292540769607768267213148470047192533783356651951103773544607365700830304720348095357381720861732062131428306950367835186817770742714377511664088124921726109762611</span><br>n = <span class="hljs-number">131955690538161673663979223798074678499726259420694182793841613919440640794173261722991102718429029438380697505701015619452283142119487944084622078736557807531823541140258838261464844922518316272881433984179091296264635187662962573084675257499354062781067172877584482339564742280505536614114067794677477277487</span><br>leak = <span class="hljs-number">2854831492248561377973114517344274987491834433439026310389937614171692082857812555747188089670141576752295596881129854180086210600895683598247563627762686</span><br><br><span class="hljs-comment"># print(get_pq(n, leak))</span><br><br>p,q=(<span class="hljs-number">11113942991349591718931137318539743396260239379884216203562999422787515075947711818547244264004890191734871882152561659063904969401500203920653354643291209</span>, <span class="hljs-number">11872986089713421317299505507375936916846603084691936060341849012517323444798572051884859182964850122065017068677498777850682439822551058508514322157039543</span>)<br><span class="hljs-keyword">assert</span> p*q==n<br><br>phi=(p-<span class="hljs-number">1</span>)*(q-<span class="hljs-number">1</span>)<br><br><span class="hljs-built_in">print</span>(long_to_bytes(<span class="hljs-built_in">pow</span>(c,inverse(<span class="hljs-number">65537</span>,phi),n)))<br><span class="hljs-comment">#b&#x27;HXCTF&#123;7his_i5_the_r3al_s1gn-in_que5ti0n&#125;&#x27;</span><br></code></pre></td></tr></table></figure>
 <h3 id="lfsr">lfsr</h3>
 <p>直接上脚本</p>
@@ -362,68 +369,109 @@
 <p>提示信息：<strong>凡事都有两面性，我们不妨倒过来思考一下</strong></p>
 <p>用cyberchef处理，下载逆序后的文件：</p>
 <figure>
-<img src="20f9d475-6269-4cfc-b451-93d738c1e436.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>20f9d475-6269-4cfc-b451-93d738c1e436</figcaption>
+<img src="20f9d475-6269-4cfc-b451-93d738c1e436.png" srcset="/img/loading.gif" lazyload
+alt="20f9d475-6269-4cfc-b451-93d738c1e436" />
+<figcaption
+aria-hidden="true">20f9d475-6269-4cfc-b451-93d738c1e436</figcaption>
 </figure>
 <p>压缩包内容<code>0宽隐写</code></p>
 <figure>
-<img src="bed2fc85-2d13-41fa-9c33-426087319732.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>bed2fc85-2d13-41fa-9c33-426087319732</figcaption>
+<img src="bed2fc85-2d13-41fa-9c33-426087319732.png" srcset="/img/loading.gif" lazyload
+alt="bed2fc85-2d13-41fa-9c33-426087319732" />
+<figcaption
+aria-hidden="true">bed2fc85-2d13-41fa-9c33-426087319732</figcaption>
 </figure>
 <h3 id="f4k3ctr0n1c的新年祝福">f4k3ctr0n1c的新年祝福</h3>
 <p>扒拉出题人的QQ空间</p>
 <h3 id="f4k3ctr0n1c的旅行1">f4k3ctr0n1c的旅行1</h3>
 <p>百度图搜，直接就是古北水镇</p>
 <figure>
-<img src="ffdc3e34-e668-499e-a13a-d3e2ddb7c803.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>ffdc3e34-e668-499e-a13a-d3e2ddb7c803</figcaption>
+<img src="ffdc3e34-e668-499e-a13a-d3e2ddb7c803.png" srcset="/img/loading.gif" lazyload
+alt="ffdc3e34-e668-499e-a13a-d3e2ddb7c803" />
+<figcaption
+aria-hidden="true">ffdc3e34-e668-499e-a13a-d3e2ddb7c803</figcaption>
 </figure>
 <figure>
-<img src="3bbec0c9-89bd-43d4-93f9-8a63916ea4cf.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>3bbec0c9-89bd-43d4-93f9-8a63916ea4cf</figcaption>
+<img src="3bbec0c9-89bd-43d4-93f9-8a63916ea4cf.png" srcset="/img/loading.gif" lazyload
+alt="3bbec0c9-89bd-43d4-93f9-8a63916ea4cf" />
+<figcaption
+aria-hidden="true">3bbec0c9-89bd-43d4-93f9-8a63916ea4cf</figcaption>
 </figure>
 <h3 id="学姐的微信在哪里呀">学姐的微信在哪里呀</h3>
 <p>01串转二维码，写个脚本，再手机扫一扫</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> PIL <span class="hljs-keyword">import</span> Image<br><br>content = []<br><span class="hljs-keyword">with</span> <span class="hljs-built_in">open</span>(<span class="hljs-string">&#x27;1.txt&#x27;</span>, <span class="hljs-string">&#x27;r&#x27;</span>) <span class="hljs-keyword">as</span> f:<br>    content = [line.strip() <span class="hljs-keyword">for</span> line <span class="hljs-keyword">in</span> f.readlines()]<br><br>height = <span class="hljs-built_in">len</span>(content)<br>width = <span class="hljs-built_in">len</span>(content[<span class="hljs-number">0</span>])<br>image = Image.new(<span class="hljs-string">&#x27;RGB&#x27;</span>, (width, height))<br><br><span class="hljs-keyword">for</span> i <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(height):<br>    <span class="hljs-keyword">for</span> j <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(width):<br>        <span class="hljs-keyword">if</span> content[i][j] == <span class="hljs-string">&#x27;0&#x27;</span>:<br>            image.putpixel((j, i), (<span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>))<br>        <span class="hljs-keyword">else</span>:<br>            image.putpixel((j, i), (<span class="hljs-number">0</span>, <span class="hljs-number">0</span>, <span class="hljs-number">0</span>))<br><br>image.show()<br></code></pre></td></tr></table></figure>
 <h3 id="测测你的马1">测测你的马1</h3>
 <figure>
-<img src="38180c65-1b9d-4ce7-acd7-88d553202bbb.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>38180c65-1b9d-4ce7-acd7-88d553202bbb</figcaption>
+<img src="38180c65-1b9d-4ce7-acd7-88d553202bbb.png" srcset="/img/loading.gif" lazyload
+alt="38180c65-1b9d-4ce7-acd7-88d553202bbb" />
+<figcaption
+aria-hidden="true">38180c65-1b9d-4ce7-acd7-88d553202bbb</figcaption>
 </figure>
 <p><code>flag{61.139.2.129_61.139.2.1}</code></p>
 <h3 id="测测你的马2">测测你的马2</h3>
 <p>特定ip流量分析</p>
 <figure>
-<img src="caf4fe0e-92e8-4dbc-9848-dea2286205d2.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>caf4fe0e-92e8-4dbc-9848-dea2286205d2</figcaption>
+<img src="caf4fe0e-92e8-4dbc-9848-dea2286205d2.png" srcset="/img/loading.gif" lazyload
+alt="caf4fe0e-92e8-4dbc-9848-dea2286205d2" />
+<figcaption
+aria-hidden="true">caf4fe0e-92e8-4dbc-9848-dea2286205d2</figcaption>
 </figure>
 <p><code>flag{H@_hA_y0ur_PC_15_h4cK3d!}</code></p>
 <h3 id="测测你的马3">测测你的马3</h3>
 <p>第二问中已经有了(用autopsy打开更明显)</p>
 <figure>
-<img src="c99aaf0a-fdec-4918-b854-573f8fbad66e.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>c99aaf0a-fdec-4918-b854-573f8fbad66e</figcaption>
+<img src="c99aaf0a-fdec-4918-b854-573f8fbad66e.png" srcset="/img/loading.gif" lazyload
+alt="c99aaf0a-fdec-4918-b854-573f8fbad66e" />
+<figcaption
+aria-hidden="true">c99aaf0a-fdec-4918-b854-573f8fbad66e</figcaption>
 </figure>
 <p><code>flag{C:\Temp\hack.txt}</code></p>
 <h3 id="测测你的马4">测测你的马4</h3>
 <figure>
-<img src="41297639-2f9f-4ff8-bcb3-5416c713f53b.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>41297639-2f9f-4ff8-bcb3-5416c713f53b</figcaption>
+<img src="41297639-2f9f-4ff8-bcb3-5416c713f53b.png" srcset="/img/loading.gif" lazyload
+alt="41297639-2f9f-4ff8-bcb3-5416c713f53b" />
+<figcaption
+aria-hidden="true">41297639-2f9f-4ff8-bcb3-5416c713f53b</figcaption>
 </figure>
 <p><code>flag{w1nh4ck3r}</code></p>
 <h3 id="测测你的马5">测测你的马5</h3>
 <p>网上查找信息的时候发现<code>svchost.exe</code>就是一种恶意文件</p>
 <figure>
-<img src="72674da8-62fe-431d-895c-f45ac899d299.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>72674da8-62fe-431d-895c-f45ac899d299</figcaption>
+<img src="72674da8-62fe-431d-895c-f45ac899d299.png" srcset="/img/loading.gif" lazyload
+alt="72674da8-62fe-431d-895c-f45ac899d299" />
+<figcaption
+aria-hidden="true">72674da8-62fe-431d-895c-f45ac899d299</figcaption>
 </figure>
 <p>找到文件得到位置：</p>
 <figure>
-<img src="394e809c-825d-44d9-aa5d-414629b2d8a4.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>394e809c-825d-44d9-aa5d-414629b2d8a4</figcaption>
+<img src="394e809c-825d-44d9-aa5d-414629b2d8a4.png" srcset="/img/loading.gif" lazyload
+alt="394e809c-825d-44d9-aa5d-414629b2d8a4" />
+<figcaption
+aria-hidden="true">394e809c-825d-44d9-aa5d-414629b2d8a4</figcaption>
 </figure>
 <p><code>flag{C:\Users\Public\Downloads\svchost.exe}</code></p>
 <h3 id="测测你的马6">测测你的马6</h3>
 <p>windows的用户密码，导出system和sam</p>
 <figure>
-<img src="63a7fa46-91cd-4114-8a6a-bf6716a9253b.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>63a7fa46-91cd-4114-8a6a-bf6716a9253b</figcaption>
+<img src="63a7fa46-91cd-4114-8a6a-bf6716a9253b.png" srcset="/img/loading.gif" lazyload
+alt="63a7fa46-91cd-4114-8a6a-bf6716a9253b" />
+<figcaption
+aria-hidden="true">63a7fa46-91cd-4114-8a6a-bf6716a9253b</figcaption>
 </figure>
 <figure>
-<img src="e081ace6-8bcf-4cdc-95d7-0202f6bb8236.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>e081ace6-8bcf-4cdc-95d7-0202f6bb8236</figcaption>
+<img src="e081ace6-8bcf-4cdc-95d7-0202f6bb8236.png" srcset="/img/loading.gif" lazyload
+alt="e081ace6-8bcf-4cdc-95d7-0202f6bb8236" />
+<figcaption
+aria-hidden="true">e081ace6-8bcf-4cdc-95d7-0202f6bb8236</figcaption>
 </figure>
-<p>使用mimikatz得到加密结果： <img src="2f017533-553a-4899-82af-54ac8a0b0dcf.png" srcset="/img/loading.gif" lazyload alt="2f017533-553a-4899-82af-54ac8a0b0dcf" /></p>
+<p>使用mimikatz得到加密结果： <img
+src="2f017533-553a-4899-82af-54ac8a0b0dcf.png" srcset="/img/loading.gif" lazyload
+alt="2f017533-553a-4899-82af-54ac8a0b0dcf" /></p>
 <figure>
-<img src="9d09796b-a644-425f-926f-68fe08336fd3.png" srcset="/img/loading.gif" lazyload alt="" /><figcaption>9d09796b-a644-425f-926f-68fe08336fd3</figcaption>
+<img src="9d09796b-a644-425f-926f-68fe08336fd3.png" srcset="/img/loading.gif" lazyload
+alt="9d09796b-a644-425f-926f-68fe08336fd3" />
+<figcaption
+aria-hidden="true">9d09796b-a644-425f-926f-68fe08336fd3</figcaption>
 </figure>
 <p><code>flag{P@ssw0rd!}</code></p>
 
@@ -520,7 +568,7 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/blogs/vpq6209j/" title="TGCTF 2025">
+                      <a href="/2025/09/23/TGCTF%202025/" title="TGCTF 2025">
                         <i class="iconfont icon-arrowleft"></i>
                         <span class="hidden-mobile">TGCTF 2025</span>
                         <span class="visible-mobile">上一篇</span>
@@ -530,8 +578,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2025/09/23/H%5Ba%5DNCTF%202025/" title="H[a]NCTF 2025">
-                        <span class="hidden-mobile">H[a]NCTF 2025</span>
+                      <a href="/2025/09/23/H%5Band%5DNCTF%202025/" title="H[and]NCTF 2025">
+                        <span class="hidden-mobile">H[and]NCTF 2025</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

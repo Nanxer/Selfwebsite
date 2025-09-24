@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Nanxer">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="GFLCG Question chal.py 12345678910111213141516171819202122232425262728293031323334353637383940from Crypto.Cipher import AESfrom Crypto.Util.Padding import padclass LCG:    def __init__(self, nbits):">
+<meta property="og:type" content="article">
+<meta property="og:title" content="CrewCTF 2025">
+<meta property="og:url" content="https://nanxer.it4keth2ee.top/2025/09/24/CrewCTF2025/index.html">
+<meta property="og:site_name" content="Nanxer&#39;s Blog">
+<meta property="og:description" content="GFLCG Question chal.py 12345678910111213141516171819202122232425262728293031323334353637383940from Crypto.Cipher import AESfrom Crypto.Util.Padding import padclass LCG:    def __init__(self, nbits):">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Nanxer/MyPicture@main/blogs/20250924151135633.png">
+<meta property="article:published_time" content="2025-09-24T06:59:53.000Z">
+<meta property="article:modified_time" content="2025-09-24T08:17:42.274Z">
+<meta property="article:author" content="Nanxer">
+<meta property="article:tag" content="crypto">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Nanxer/MyPicture@main/blogs/20250924151135633.png">
+  
+  
+    <meta name="referrer" content="no-referrer-when-downgrade">
+  
+  
+  <title>CrewCTF 2025 - Nanxer&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1736178_k526ubmyhba.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+  
+<link rel="stylesheet" href="/css/glassBg.css">
+<link rel="stylesheet" href="/css/scrollAnimation.css">
+<link rel="stylesheet" href="/css/sign.css">
+<link rel="stylesheet" href="/css/links.css">
+<link rel="stylesheet" href="/css/macBorder.css">
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"nanxer.it4keth2ee.top","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":"❡"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2025-9-23","token":null,"api_server":null}},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 8.0.0"></head>
+
+
+<body><!-- hexo injector body_begin start --><div id="web_bg"></div><!-- hexo injector body_begin end -->
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>Nanxer</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="CrewCTF 2025"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2025-09-24 14:59" pubdate>
+          2025年9月24日 下午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          421 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          4 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">CrewCTF 2025</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h2 id="gflcg">GFLCG</h2>
+<h3 id="question">Question</h3>
+<p>chal.py</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><code class="hljs python"><span class="hljs-keyword">from</span> Crypto.Cipher <span class="hljs-keyword">import</span> AES<br><span class="hljs-keyword">from</span> Crypto.Util.Padding <span class="hljs-keyword">import</span> pad<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">LCG</span>:<br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, nbits</span>):<br>        <span class="hljs-variable language_">self</span>.nbits = nbits<br>        R = GF(<span class="hljs-number">2</span>)[<span class="hljs-string">&#x27;x&#x27;</span>]<br>        mod = <span class="hljs-number">0</span><br>        <span class="hljs-keyword">while</span> <span class="hljs-literal">True</span>:<br>            mod = R.random_element(degree=nbits)<br>            <span class="hljs-keyword">if</span> mod.is_irreducible():<br>                <span class="hljs-keyword">break</span><br>        <span class="hljs-keyword">assert</span> mod.degree() == nbits<br>        <span class="hljs-variable language_">self</span>.F = GF(<span class="hljs-number">2</span> ** nbits, <span class="hljs-string">&#x27;x&#x27;</span>, modulus=mod)<br>        <span class="hljs-variable language_">self</span>.a = <span class="hljs-variable language_">self</span>.F.random_element()<br>        <span class="hljs-variable language_">self</span>.b = <span class="hljs-variable language_">self</span>.F.random_element()<br>        <span class="hljs-variable language_">self</span>.m = mod<br>        <span class="hljs-variable language_">self</span>.state = <span class="hljs-variable language_">self</span>.F.random_element()<br><br>    <span class="hljs-keyword">def</span> <span class="hljs-title function_">__next__</span>(<span class="hljs-params">self</span>):<br>        <span class="hljs-variable language_">self</span>.state *= <span class="hljs-variable language_">self</span>.a<br>        <span class="hljs-variable language_">self</span>.state += <span class="hljs-variable language_">self</span>.b<br>        <span class="hljs-keyword">return</span> <span class="hljs-variable language_">self</span>.state.to_integer() &gt;&gt; ((<span class="hljs-variable language_">self</span>.nbits * <span class="hljs-number">2</span>) // <span class="hljs-number">3</span>)<br><br><br>L = LCG(<span class="hljs-number">64</span> * <span class="hljs-number">3</span>)<br><br>values = [<span class="hljs-built_in">next</span>(L) <span class="hljs-keyword">for</span> _ <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(<span class="hljs-number">200</span>)]<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;values = &#125;</span>&#x27;</span>)<br><br>v1 = <span class="hljs-built_in">next</span>(L)<br>v2 = <span class="hljs-built_in">next</span>(L)<br>key = v1 + v2 * <span class="hljs-built_in">pow</span>(<span class="hljs-number">2</span>, <span class="hljs-number">64</span>)<br>key = <span class="hljs-built_in">int</span>.to_bytes(<span class="hljs-built_in">int</span>(key), <span class="hljs-number">16</span>)<br><br>flag = <span class="hljs-string">&#x27;crew&#123;*** REDACTED ***&#125;&#x27;</span><br>cipher = AES.new(key, AES.MODE_ECB)<br><br>msg = cipher.encrypt(pad(flag.encode(), <span class="hljs-number">16</span>))<br><span class="hljs-built_in">print</span>(<span class="hljs-string">f&#x27;<span class="hljs-subst">&#123;msg = &#125;</span>&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<p>output.txt</p>
+<figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs rust">values = [<span class="hljs-number">14841917648858837769</span>, <span class="hljs-number">9575471537143015742</span>, <span class="hljs-number">15844238770919434615</span>, <span class="hljs-number">5212260032608174747</span>, <span class="hljs-number">9233247444323572291</span>, <span class="hljs-number">10459091850700078324</span>, <span class="hljs-number">6348171461039085016</span>, <span class="hljs-number">11275083358377081726</span>, <span class="hljs-number">15851907641654315174</span>, <span class="hljs-number">5642462723638664555</span>, <span class="hljs-number">12166934227670445515</span>, <span class="hljs-number">16652002833255337213</span>, <span class="hljs-number">1100331227495018541</span>, <span class="hljs-number">17310052757528676070</span>, <span class="hljs-number">10647848709476991180</span>, <span class="hljs-number">7381860977210638817</span>, <span class="hljs-number">14749898712454789023</span>, <span class="hljs-number">9867793747622460486</span>, <span class="hljs-number">1616048454543341186</span>, <span class="hljs-number">8104578690941366513</span>, <span class="hljs-number">4083347094007115737</span>, <span class="hljs-number">11760837183986471162</span>, <span class="hljs-number">16862797396993697119</span>, <span class="hljs-number">1174637638031988756</span>, <span class="hljs-number">1804745826465075031</span>, <span class="hljs-number">16276632568687926630</span>, <span class="hljs-number">5043494920323747028</span>, <span class="hljs-number">11409272895120917919</span>, <span class="hljs-number">16265611200345769799</span>, <span class="hljs-number">14970614558261079002</span>, <span class="hljs-number">2250516726687967919</span>, <span class="hljs-number">1197248850350389243</span>, <span class="hljs-number">14603131310865530726</span>, <span class="hljs-number">16548361948476584779</span>, <span class="hljs-number">13353652992939482174</span>, <span class="hljs-number">13336486704510937571</span>, <span class="hljs-number">10441893770111811970</span>, <span class="hljs-number">4107764688249514273</span>, <span class="hljs-number">11772797255441774916</span>, <span class="hljs-number">12518165417933617541</span>, <span class="hljs-number">7010550077174075010</span>, <span class="hljs-number">14001355721098446832</span>, <span class="hljs-number">437777177382829002</span>, <span class="hljs-number">1722164767628433760</span>, <span class="hljs-number">6559647342847449596</span>, <span class="hljs-number">7938756427230732045</span>, <span class="hljs-number">13281366260429048930</span>, <span class="hljs-number">13092183655381323106</span>, <span class="hljs-number">11806529132310996843</span>, <span class="hljs-number">13947964017447178113</span>, <span class="hljs-number">4621312151518731422</span>, <span class="hljs-number">12501874612357040563</span>, <span class="hljs-number">10826458102042992364</span>, <span class="hljs-number">2159902472703790642</span>, <span class="hljs-number">13882393964322032422</span>, <span class="hljs-number">6529148921315953891</span>, <span class="hljs-number">10134887505878190392</span>, <span class="hljs-number">10419951393751420634</span>, <span class="hljs-number">10135848342454860542</span>, <span class="hljs-number">14313363158598253532</span>, <span class="hljs-number">8934368669847669830</span>, <span class="hljs-number">5124101360181491049</span>, <span class="hljs-number">14913219354552074425</span>, <span class="hljs-number">10908282099950928722</span>, <span class="hljs-number">4253964689299281724</span>, <span class="hljs-number">7407726974875151040</span>, <span class="hljs-number">14219905121435863470</span>, <span class="hljs-number">4181337490774743589</span>, <span class="hljs-number">4184184504223738823</span>, <span class="hljs-number">16936150976212002434</span>, <span class="hljs-number">14433936574129760038</span>, <span class="hljs-number">15520881989251542597</span>, <span class="hljs-number">11194070033146759221</span>, <span class="hljs-number">18174433602168311426</span>, <span class="hljs-number">13020442067015339358</span>, <span class="hljs-number">4382990166888652495</span>, <span class="hljs-number">10254297534043164279</span>, <span class="hljs-number">3817100944212579597</span>, <span class="hljs-number">5331877218604250458</span>, <span class="hljs-number">7185825545642354761</span>, <span class="hljs-number">338711531771068892</span>, <span class="hljs-number">10250264203376128253</span>, <span class="hljs-number">7359215208260510617</span>, <span class="hljs-number">14277514750873457414</span>, <span class="hljs-number">3460304295915392143</span>, <span class="hljs-number">3818816217224032441</span>, <span class="hljs-number">4483483566282319717</span>, <span class="hljs-number">2866544513807354462</span>, <span class="hljs-number">12135646457812113066</span>, <span class="hljs-number">8778669990047144231</span>, <span class="hljs-number">12989768322575258896</span>, <span class="hljs-number">8988116933722638298</span>, <span class="hljs-number">15692389573895602242</span>, <span class="hljs-number">4456647617936315332</span>, <span class="hljs-number">6039845569195475247</span>, <span class="hljs-number">14311304340715617600</span>, <span class="hljs-number">17295981409675358596</span>, <span class="hljs-number">11427453308135142971</span>, <span class="hljs-number">9052862849088317754</span>, <span class="hljs-number">6137397312278782739</span>, <span class="hljs-number">9544766266324391091</span>, <span class="hljs-number">16447228426027058890</span>, <span class="hljs-number">13803636818363488657</span>, <span class="hljs-number">16670480602864962535</span>, <span class="hljs-number">3351397243085772246</span>, <span class="hljs-number">5665702184993835815</span>, <span class="hljs-number">16424003006508152011</span>, <span class="hljs-number">13976194469704404585</span>, <span class="hljs-number">401185194999070420</span>, <span class="hljs-number">5699512823604259627</span>, <span class="hljs-number">17357160984615588720</span>, <span class="hljs-number">3670786096561696620</span>, <span class="hljs-number">4323747368693388297</span>, <span class="hljs-number">10876978042181159325</span>, <span class="hljs-number">7883125366518538304</span>, <span class="hljs-number">2344284687610109741</span>, <span class="hljs-number">12391759147373797536</span>, <span class="hljs-number">12590053927293200960</span>, <span class="hljs-number">8879156692797105548</span>, <span class="hljs-number">8461065756503570819</span>, <span class="hljs-number">17573320578141302871</span>, <span class="hljs-number">15642604376730203427</span>, <span class="hljs-number">12749133263385207476</span>, <span class="hljs-number">4133105186664632492</span>, <span class="hljs-number">18028280465459656846</span>, <span class="hljs-number">3067339009189147778</span>, <span class="hljs-number">15204862189705497345</span>, <span class="hljs-number">18132974384436241649</span>, <span class="hljs-number">8091492506662448517</span>, <span class="hljs-number">18147014166549437993</span>, <span class="hljs-number">5201643316892664569</span>, <span class="hljs-number">3104017212583314140</span>, <span class="hljs-number">3368545846626480386</span>, <span class="hljs-number">14752755621090773653</span>, <span class="hljs-number">9816609813405607817</span>, <span class="hljs-number">10989512726787524104</span>, <span class="hljs-number">17941375633925480992</span>, <span class="hljs-number">5969536734982737360</span>, <span class="hljs-number">3324460409144811670</span>, <span class="hljs-number">14364167734200742327</span>, <span class="hljs-number">10841885411537515505</span>, <span class="hljs-number">12033027733536926218</span>, <span class="hljs-number">13019115357341976440</span>, <span class="hljs-number">13723571084095846113</span>, <span class="hljs-number">14963449044276506843</span>, <span class="hljs-number">9241404467774916626</span>, <span class="hljs-number">1173475476199930336</span>, <span class="hljs-number">10007814422905689012</span>, <span class="hljs-number">880823326108631285</span>, <span class="hljs-number">2864914879726840475</span>, <span class="hljs-number">12348071585001057949</span>, <span class="hljs-number">6441302746542868688</span>, <span class="hljs-number">4806991077471213319</span>, <span class="hljs-number">8933141648678945175</span>, <span class="hljs-number">11649694907667295433</span>, <span class="hljs-number">8708277013041751508</span>, <span class="hljs-number">11719418456350910218</span>, <span class="hljs-number">16635157254108725579</span>, <span class="hljs-number">2134377351096125475</span>, <span class="hljs-number">10289961173017455600</span>, <span class="hljs-number">7055962786096505116</span>, <span class="hljs-number">21728601024181168</span>, <span class="hljs-number">16456998880597164728</span>, <span class="hljs-number">17216116874066795215</span>, <span class="hljs-number">3380132322173996284</span>, <span class="hljs-number">13114502767808007100</span>, <span class="hljs-number">4207348709474901930</span>, <span class="hljs-number">12916699834279235125</span>, <span class="hljs-number">15877440687400786825</span>, <span class="hljs-number">4585779573201771030</span>, <span class="hljs-number">3370966433634988692</span>, <span class="hljs-number">6413163656213101252</span>, <span class="hljs-number">8735986678159831147</span>, <span class="hljs-number">14813660282203931848</span>, <span class="hljs-number">4336269858741206951</span>, <span class="hljs-number">7680697319476289935</span>, <span class="hljs-number">3057350045239125021</span>, <span class="hljs-number">437484923622226917</span>, <span class="hljs-number">12182392489340614340</span>, <span class="hljs-number">7344380605957273905</span>, <span class="hljs-number">1047582581395548343</span>, <span class="hljs-number">9669150555048976950</span>, <span class="hljs-number">3445073427932842783</span>, <span class="hljs-number">5988003049280873305</span>, <span class="hljs-number">9984210927208328016</span>, <span class="hljs-number">8558400548885959238</span>, <span class="hljs-number">14932071850589169092</span>, <span class="hljs-number">10998241484982990572</span>, <span class="hljs-number">4061032217328993314</span>, <span class="hljs-number">16299495071317926943</span>, <span class="hljs-number">14159713152585339233</span>, <span class="hljs-number">7943955737745599039</span>, <span class="hljs-number">2708719529779063308</span>, <span class="hljs-number">5915795415723872866</span>, <span class="hljs-number">15610632814203455383</span>, <span class="hljs-number">9659638034966636775</span>, <span class="hljs-number">10804220067446596648</span>, <span class="hljs-number">3339259544022408735</span>, <span class="hljs-number">16353934319513835005</span>, <span class="hljs-number">7564345426168321381</span>]<br>msg = <span class="hljs-string">b&#x27;<span class="hljs-char escape_">\x</span>f9<span class="hljs-char escape_">\x</span>b9p<span class="hljs-char escape_">\x</span>f1<span class="hljs-char escape_">\x</span>a0<span class="hljs-char escape_">\x</span>c2<span class="hljs-char escape_">\x</span>15-<span class="hljs-char escape_">\x</span>a1<span class="hljs-char escape_">\x</span>90b<span class="hljs-char escape_">\x</span>06<span class="hljs-char escape_">\x</span>85<span class="hljs-char escape_">\x</span>1e<span class="hljs-char escape_">\x</span>a9bH<span class="hljs-char escape_">\x</span>15<span class="hljs-char escape_">\x</span>02<span class="hljs-char escape_">\x</span>cc<span class="hljs-char escape_">\x</span>ba<span class="hljs-char escape_">\x</span>97<span class="hljs-char escape_">\x</span>c9.<span class="hljs-char escape_">\x</span>d3<span class="hljs-char escape_">\x</span>c8#<span class="hljs-char escape_">\x</span>1af6N<span class="hljs-char escape_">\x</span>96x)<span class="hljs-char escape_">\x</span>89<span class="hljs-char escape_">\x</span>ddrg<span class="hljs-char escape_">\x</span>a2<span class="hljs-char escape_">\x</span>8b<span class="hljs-char escape_">\x</span>dd<span class="hljs-char escape_">\x</span>0c<span class="hljs-char escape_">\x</span>c9peNzWU<span class="hljs-char escape_">\x</span>fc9fJ1<span class="hljs-char escape_">\x</span>ef<span class="hljs-char escape_">\x</span>dd<span class="hljs-char escape_">\n</span><span class="hljs-char escape_">\x</span>9c<span class="hljs-char escape_">\x</span>a2<span class="hljs-char escape_">\t</span>W<span class="hljs-char escape_">\x</span>97F<span class="hljs-char escape_">\x</span>9a&#x27;</span><br></code></pre></td></tr></table></figure>
+<h3 id="analyze">Analyze</h3>
+<p>题中实现了一个LCG产生密钥，使用此密钥用AES加密flag的系统，AES没有变形，关键在于LCG的破解得到key。</p>
+<p>此LCG是定义在</p>
+<h3 id="solution">Solution</h3>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/CTF/" class="category-chain-item">CTF</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/crypto/" class="print-no-link">#crypto</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>CrewCTF 2025</div>
+      <div>https://nanxer.it4keth2ee.top/2025/09/24/CrewCTF2025/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Nanxer</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2025年9月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2025/09/24/HXCTF2025/" title="HXCTF2025">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">HXCTF2025</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2025/09/23/%E5%AF%86%E7%A0%81%E7%BB%BC%E8%BF%B0/" title="密码综述">
+                        <span class="hidden-mobile">密码综述</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+    <div id="giscus" class="giscus"></div>
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#giscus', function() {
+        var options = {"repo":"Nanxer/Selfwebsite","repo-id":"R_kgDOP1NK6Q","category":"Announcements","category-id":"DIC_kwDOP1NK6c4CvyqQ","theme-light":"light","theme-dark":"dark","mapping":"pathname","reactions-enabled":1,"emit-metadata":0,"input-position":"top","lang":"zh-CN"};
+        var attributes = {};
+        for (let option in options) {
+          if (!option.startsWith('theme-')) {
+            var key = option.startsWith('data-') ? option : 'data-' + option;
+            attributes[key] = options[option];
+          }
+        }
+        var light = 'light';
+        var dark = 'dark';
+        window.GiscusThemeLight = light;
+        window.GiscusThemeDark = dark;
+        attributes['data-theme'] = document.documentElement.getAttribute('data-user-color-scheme') === 'dark' ? dark : light;
+        for (let attribute in attributes) {
+          var value = attributes[attribute];
+          if (value === undefined || value === null || value === '') {
+            delete attributes[attribute];
+          }
+        }
+        var s = document.createElement('script');
+        s.setAttribute('src', 'https://giscus.app/client.js');
+        s.setAttribute('crossorigin', 'anonymous');
+        for (let attribute in attributes) {
+          s.setAttribute(attribute, attributes[attribute]);
+        }
+        var ss = document.getElementsByTagName('script');
+        var e = ss.length > 0 ? ss[ss.length - 1] : document.head || document.documentElement;
+        e.parentNode.insertBefore(s, e.nextSibling);
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="busuanzi_container_site_pv" style="display: none">
+        总访问量 
+        <span id="busuanzi_value_site_pv"></span>
+         次
+      </span>
+    
+    
+      <span id="busuanzi_container_site_uv" style="display: none">
+        总访客数 
+        <span id="busuanzi_value_site_uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/5.0.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              load: ['ui/lazy']
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://lib.baomitu.com/mathjax/3.2.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+<!-- hexo injector body_end start --><script src="/js/backgroundize.js"></script><script src="/js/snow.js"></script><script src="/js/sign.js"></script><script src="/js/scrollAnimation.js"></script><!-- hexo injector body_end end --></body>
+</html>
